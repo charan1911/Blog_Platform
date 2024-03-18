@@ -1,0 +1,42 @@
+<!-- blog_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+</head>
+<body>
+    <header><h1 align="center">WELCOME TO BLOG PLATFORM</h1></header>
+    <h1>Blog List</h1>
+
+
+<a href="{% url 'frontpage' %}">Go to Front Page</a>
+<!-- blog_list.html -->
+
+<div class="container">
+    
+    {% for post in blog_posts %}
+        {% if forloop.counter0|divisibleby:3 %}
+            <div class="row">
+        {% endif %}
+        
+        <div class="col-md-4">
+            <div>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.description }}</p>
+                <a href="{% url 'edit_blog' blog_id=post.id %}">Edit</a>
+                <a href="{% url 'delete_blog' blog_id=post.id %}">Delete</a>{{i.title}}<p>
+
+                <!-- Add other details or links as needed -->
+            </div>
+        </div>
+
+        
+    {% endfor %}
+</div>
+
+<a href="{% url 'blog_list' %}">Go to Blog List</a>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<!-- delete_blog.html -->
+<h2>Delete Blog Post</h2>
+<p>Are you sure you want to delete "{{ blog_instance.title }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+</form>
